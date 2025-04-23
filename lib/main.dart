@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:glam_ai/homepage.dart';
+import 'package:glam_ai/res/app_constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,112 +13,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: appTitle,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        fontFamily: appFontFamilyMontserrat
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      home: HomeScreen(images: [
+        'https://img.freepik.com/free-photo/portrait-adult-woman-digital-art-style_23-2151122883.jpg?t=st=1745387434~exp=1745391034~hmac=c1973a9353ef1a01fdeff22a7cd74e7084b8243cc5ad73f75a524f6b3fea587b&w=1380',
+        'https://img.freepik.com/free-photo/portrait-adult-woman-digital-art-style_23-2151122963.jpg?t=st=1745387457~exp=1745391057~hmac=ca111b0673fce6d4c68765722306b363bb0a884bb20fc3b3c3b8cdc39983f290&w=1380',
+        'https://img.freepik.com/free-photo/fantasy-scene-with-surreal-creature_23-2151254494.jpg?t=st=1745387476~exp=1745391076~hmac=b23c151f461d7b8d76c6315cabde068aee63f66b968de20c0d1172e6b2466904&w=996',
+        'https://img.freepik.com/free-photo/spa-concept-with-woman-bathtub_23-2147821066.jpg?ga=GA1.1.1424503138.1745387420&semt=ais_hybrid&w=740',
+        'https://img.freepik.com/free-photo/pieces-portrait-concept-with-beautiful-woman_23-2149412310.jpg?ga=GA1.1.1424503138.1745387420&semt=ais_hybrid&w=740',
+        'https://img.freepik.com/free-photo/abstract-portrait-with-light-effects_23-2151118123.jpg?ga=GA1.1.1424503138.1745387420&semt=ais_hybrid&w=740',
+        'https://img.freepik.com/free-photo/digital-art-style-portrait-adult-woman_23-2151122776.jpg?ga=GA1.1.1424503138.1745387420&semt=ais_hybrid&w=740',
+        'https://img.freepik.com/free-photo/anthropomorphic-portrait-animal-dressed-human-clothes-doing-daily-activities_23-2151107322.jpg?ga=GA1.1.1424503138.1745387420&semt=ais_hybrid&w=740',
+        'https://img.freepik.com/premium-photo/woman-s-face-with-sunset-forest-double-exposure_1287633-5403.jpg?ga=GA1.1.1424503138.1745387420&semt=ais_hybrid&w=740',
+        'https://img.freepik.com/free-photo/digital-art-magical-fairy_23-2151589497.jpg?ga=GA1.1.1424503138.1745387420&semt=ais_hybrid&w=740'
+      ])
     );
   }
 }

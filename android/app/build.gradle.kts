@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.glam_ai"
+    namespace = "com.sherazapp.glam_ai"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
