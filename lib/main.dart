@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: appTitle,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        fontFamily: appFontFamilyMontserrat
+        fontFamily: appFontFamilyJakarta
       ),
       home: HomeScreen(images: [
         'https://img.freepik.com/free-photo/portrait-adult-woman-digital-art-style_23-2151122883.jpg?t=st=1745387434~exp=1745391034~hmac=c1973a9353ef1a01fdeff22a7cd74e7084b8243cc5ad73f75a524f6b3fea587b&w=1380',

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:glam_ai/res/app_constants.dart';
+import 'package:glam_ai/res/app_icons.dart';
 import 'package:glam_ai/res/app_textstyles.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -51,7 +53,7 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: Stack(
+      body:  Stack(
         children: [
           Row(
             spacing: 10,
@@ -81,37 +83,120 @@ class HomeScreenState extends State<HomeScreen> {
             bottom: 0,
             right: 0,
             left: 0,
-            child: Container(
+            child: Card(
+              margin: EdgeInsets.zero,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 15.0, bottom: 30, right: 10, left: 10),
+                child: Column(
+                  spacing: 15,
+                  children: [
+                    Text("Welcome to GLAMS AI", style: AppTextStyles.largeTextStyle,),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                      child: Text(appDescription, textAlign: TextAlign.center,),
+                    ),
+                    ElevatedButton(
+                      onPressed: (){},
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.all(15),
+                          backgroundColor: Colors.white
+                      ),
+                      child: Row(
+                        spacing: 10,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(AppIcons.icGoogle, height: 25,),
+                          Text("Continue with Google", style: AppTextStyles.titleTextStyle,)
+                        ],
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: (){},
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(15),
+                        backgroundColor: Colors.black
+                      ),
+                      child: Row(
+                        spacing: 10,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(AppIcons.icApple, height: 25, colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),),
+                          Text("Continue with Apple", style: AppTextStyles.titleTextStyle.copyWith(color: Colors.white),)
+                        ],
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: (){},
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.all(15),
+                          backgroundColor: Colors.blueAccent
+                      ),
+                      child: Row(
+                        spacing: 10,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(AppIcons.icFacebook, height: 25,),
+                          Text("Continue with Facebook", style: AppTextStyles.titleTextStyle.copyWith(color: Colors.white),)
+                        ],
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: (){},
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.all(15),
+                          backgroundColor: Colors.white
+                      ),
+                      child: Row(
+                        spacing: 10,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(AppIcons.icMail, height: 25,),
+                          Text("Continue with Email", style: AppTextStyles.titleTextStyle.copyWith(color: Colors.black),)
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+            
+            /*Container(
               padding: EdgeInsets.only(top: 45, right: 10, left: 10),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                  Colors.black45,
-                  Colors.black
-                ])
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.black54,
+                        Colors.black
+                      ])
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   RichText(text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'Welcome to\n', style: AppTextStyles.largeTextStyle.copyWith(color: Colors.white, fontFamily: appFontFamilyJakarta,)
-                      ),
-                      TextSpan(
-                          text: 'Turn Me Into ', style: AppTextStyles.largeTextStyle.copyWith(color: Colors.white, fontFamily: appFontFamilyJakarta, fontSize: 45)
-                      ),
-                    ]
+                      children: [
+                        TextSpan(
+                            text: 'Welcome to\n', style: AppTextStyles.largeTextStyle.copyWith(color: Colors.white, fontFamily: appFontFamilyJakarta,)
+                        ),
+                        TextSpan(
+                            text: 'Turn Me Into ', style: AppTextStyles.largeTextStyle.copyWith(color: Colors.white, fontFamily: appFontFamilyJakarta, fontSize: 45)
+                        ),
+                      ]
                   )),
-                  Text(appDescription, style: AppTextStyles.regularTextStyle.copyWith(color: Colors.white, fontFamily: appFontFamilyJakarta),)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10, bottom: 100, top: 10),
+                    child: Text(appDescription, style: AppTextStyles.regularTextStyle.copyWith(color: Colors.white, fontFamily: appFontFamilyJakarta),),
+                  )
                 ],
               ),
-            ),
+            ),*/
           )
         ],
-      )),
+      )
     );
   }
 }
