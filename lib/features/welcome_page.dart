@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:glam_ai/features/home_page.dart';
 import 'package:glam_ai/res/app_constants.dart';
 import 'package:glam_ai/res/app_icons.dart';
 import 'package:glam_ai/res/app_textstyles.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.images});
+class WelcomePage extends StatefulWidget {
+  const WelcomePage({super.key, required this.images});
   final List<String> images;
   @override
-  HomeScreenState createState() => HomeScreenState();
+  WelcomePageState createState() => WelcomePageState();
 }
 
-class HomeScreenState extends State<HomeScreen> {
+class WelcomePageState extends State<WelcomePage> {
   final ScrollController _scrollController1 = ScrollController();
   final ScrollController _scrollController2 = ScrollController();
   final ScrollController _scrollController3 = ScrollController();
@@ -84,6 +85,7 @@ class HomeScreenState extends State<HomeScreen> {
             right: 0,
             left: 0,
             child: Card(
+              color: Colors.white,
               margin: EdgeInsets.zero,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))
@@ -99,7 +101,9 @@ class HomeScreenState extends State<HomeScreen> {
                       child: Text(appDescription, textAlign: TextAlign.center,),
                     ),
                     ElevatedButton(
-                      onPressed: (){},
+                      onPressed: (){
+                        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (ctx)=> HomePage()), (value)=> false);
+                      },
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.all(15),
                           backgroundColor: Colors.white
