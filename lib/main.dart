@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:glam_ai/data/app_data.dart';
 import 'package:glam_ai/features/welcome_page.dart';
 import 'package:glam_ai/res/app_constants.dart';
 
-void main() {
+void main() async{
+  await dotenv.load(fileName: "assets/.env");
   runApp(const MyApp());
 }
 

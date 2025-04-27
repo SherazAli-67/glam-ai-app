@@ -11,4 +11,17 @@ class AppData {
     'https://img.freepik.com/premium-photo/woman-s-face-with-sunset-forest-double-exposure_1287633-5403.jpg?ga=GA1.1.1424503138.1745387420&semt=ais_hybrid&w=740',
     'https://img.freepik.com/free-photo/digital-art-magical-fairy_23-2151589497.jpg?ga=GA1.1.1424503138.1745387420&semt=ais_hybrid&w=740'
   ];
+
+  static List<String> styles = [
+    "None",
+    "Digital Art",
+    "Painting",
+    "Photorealistic",
+    "Anime",
+    "Sketch",
+    "Cinematic",
+    "Illustration",
+    'Minimalist',
+    'Vibrant'
+  ];
 }

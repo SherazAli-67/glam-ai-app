@@ -47,7 +47,9 @@ class WelcomePageState extends State<WelcomePage> {
         duration: Duration(seconds: seconds), curve: Curves.linear)
         .then((value) {
       direction = direction == max ? min : max;
-      animateToMaxMin(max, min, direction, seconds, scrollController);
+      if(scrollController.hasClients){
+        animateToMaxMin(max, min, direction, seconds, scrollController);
+      }
     });
   }
 
@@ -103,6 +105,9 @@ class WelcomePageState extends State<WelcomePage> {
                     ElevatedButton(
                       onPressed: (){
                         Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (ctx)=> HomePage()), (value)=> false);
+                        _scrollController1.dispose();
+                        _scrollController2.dispose();
+                        _scrollController3.dispose();
                       },
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.all(15),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:glam_ai/data/app_data.dart';
+import 'package:glam_ai/features/create_from_prompt_page.dart';
 import 'package:glam_ai/res/app_colors.dart';
 import 'package:glam_ai/res/app_constants.dart';
 import 'package:glam_ai/res/app_icons.dart';
@@ -47,9 +48,9 @@ class HomePage extends StatelessWidget{
             Row(
               spacing: 45,
               children: [
-                _buildCreationTool(icon: AppIcons.icTextGeneration, title: "Text"),
-                _buildCreationTool(icon: AppIcons.icImageFilter, title: "Image"),
-                _buildCreationTool(icon: AppIcons.icVirtualTryOn, title: "Try-on"),
+                _buildCreationTool(icon: AppIcons.icTextGeneration, title: "Text", onTap: ()=> _onTextCreationTap(context)),
+                _buildCreationTool(icon: AppIcons.icImageFilter, title: "Image", onTap: ()=> _onImageCreationTap(context)),
+                _buildCreationTool(icon: AppIcons.icVirtualTryOn, title: "Try-on",  onTap: ()=> _onVirtualTryOnTap(context)),
               ],
             ),
             Text("Your recents", style: AppTextStyles.titleTextStyle,),
@@ -66,20 +67,6 @@ class HomePage extends StatelessWidget{
               },
             )
 
-            /*GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10),
-                itemCount: AppData.aiImages.length,
-
-                itemBuilder: (ctx, index){
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: CachedNetworkImage(imageUrl: AppData.aiImages[index], fit: BoxFit.cover,),
-                  );
-            }),*/
-
             )
           ],
         ),
@@ -87,23 +74,37 @@ class HomePage extends StatelessWidget{
     );
   }
 
-  Widget _buildCreationTool({required String icon, required String title, }) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: AppColors.primaryColor.withOpacity(0.5),
-      ),
-      child: Column(
-        spacing: 5,
-        children: [
-          SvgPicture.asset(icon,
-            colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),),
-          Text(title,
-            style: AppTextStyles.mediumTextStyle.copyWith(color: Colors.white),)
-        ],
+  Widget _buildCreationTool({required String icon, required String title, required VoidCallback onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: AppColors.primaryColor.withOpacity(0.5),
+        ),
+        child: Column(
+          spacing: 5,
+          children: [
+            SvgPicture.asset(icon,
+              colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),),
+            Text(title,
+              style: AppTextStyles.mediumTextStyle.copyWith(color: Colors.white),)
+          ],
+        ),
       ),
     );
   }
 
+  void _onTextCreationTap(BuildContext context){
+    Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> CreateFromPromptPage()));
+  }
+
+  void _onImageCreationTap(BuildContext context){
+    Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> CreateFromPromptPage()));
+  }
+
+  void _onVirtualTryOnTap(BuildContext context){
+    Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> CreateFromPromptPage()));
+  }
 }
